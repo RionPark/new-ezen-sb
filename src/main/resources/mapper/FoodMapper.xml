@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ezen.sb.mapper.FoodMapper">
+
+	<select id="selectFoods" resultType="foodModel">
+		SELECT * FROM Food
+	</select>
+
+	<insert id="insertFood" parameterType="foodModel">
+		INSERT INTO Food (Food_title, Food_content)
+		VALUES(#{foodTitle}, #{foodContent})
+	</insert>
+
+	<update id="updateFood" parameterType="foodModel">
+		UPDATE Food
+		SET Food_name= #{foodName},
+		Food_price= #{foodPrice}
+		WHERE Food_num= #{foodNum}
+	</update>
+
+	<delete id="deleteFood">
+		DELETE FROM Food WHERE Food_num=#{foodNum}
+	</delete>
+</mapper>
